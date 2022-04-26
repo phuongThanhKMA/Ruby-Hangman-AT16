@@ -6,7 +6,6 @@ class Word
   
     def initialize(word=RandomWord.new.pick_random_word, lives=8, display=Display.new)  
       @word = word
-      puts "hi #{@word}"
       @incorrect_guesses = []
       @correct_guesses = ["_"] * @word.length
       @lives = lives
