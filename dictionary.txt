@@ -1,6 +1,6 @@
 abalone
 allspice
- almond
+almond
 anisette
 apple
 appetizer
