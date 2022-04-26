@@ -21,10 +21,12 @@ class Game
       end
 
       if @word.solved?
-        @word.show_answer
         @display.winner
+        @word.show_answer
+        
       else
         @display.loser
+        @word.show_answer   
       end
   end
 
