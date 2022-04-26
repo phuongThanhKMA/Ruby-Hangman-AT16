@@ -9,6 +9,6 @@ class RandomWord
   end
 
   def pick_random_word
-    @words=@index.sample
+    @words=@index.sample.strip
   end
 end
