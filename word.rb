@@ -1,14 +1,15 @@
 class Word
     require_relative 'display.rb'
     require_relative 'random_word'
+
   
     attr_reader :incorrect_guesses, :correct_guesses, :lives, :display
   
-    def initialize(word=RandomWord.new.pick_random_word, lives=8, display=Display.new)  
+    def initialize(word=RandomWord.new.pick_random_word, lives=8, display=Display.new)
       @word = word
       @incorrect_guesses = []
       @correct_guesses = ["_"] * @word.length
-      @lives = lives
+      $lives = lives
       @display = display
     end
   
@@ -32,12 +33,12 @@ class Word
         end
       else
         add_incorrect_guess(letter)
-        @lives -= 1
+        $lives -= 1
         @plural_lives = ""
-        @lives == 1 ? @plural_lives = "guess" : @plural_lives = "guesses"
-        @display.hanged_man(@lives)
+        $lives == 1 ? @plural_lives = "guess" : @plural_lives = "guesses"
+        @display.hanged_man($lives)
         print %Q(
-          You have #{@lives} #{@plural_lives} left.
+          You have #{$lives} #{@plural_lives} left.
           Here are your incorrect guesses: #{display_incorrect_guesses}
           Here are your correct guesses: #{display_correct_guesses})
       end
@@ -57,7 +58,7 @@ class Word
           #{@correct_guesses.join(" ")})
     end
   
-    def show_answer  
+    def show_answer
       puts "\tThe word was actually: #{@word}"
     end
   
@@ -79,5 +80,4 @@ class Word
     def add_incorrect_guess(letter)
       @incorrect_guesses.push(letter)
     end
-
   end
