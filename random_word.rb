@@ -5,7 +5,7 @@ class RandomWord
     filename = File.open('GK\dictionary.txt')
     word_list = File.readlines(filename)
     @index = word_list.shuffle!
-
+    filename.close
   end
 
   def pick_random_word
