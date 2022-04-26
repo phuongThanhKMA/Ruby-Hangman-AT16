@@ -58,8 +58,7 @@ class Word
     end
   
     def show_answer
-      print %Q(
-          #{@correct_guesses.join("")})
+      puts "\tThe word was actually: #{@word}"
     end
   
     def solved?
