@@ -1,1 +1,1 @@
-# Ruby-Hangman-AT16
+A command line Hangman game, created with Ruby.
